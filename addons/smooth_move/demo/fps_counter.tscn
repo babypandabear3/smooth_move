@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/smooth_move/demo/fps_counter.gd" type="Script" id=1]
+
+[node name="fps_counter" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 50 )
+color = Color( 0.207843, 0.207843, 0.207843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+margin_left = 9.89948
+margin_top = 8.48529
+margin_right = 49.8995
+margin_bottom = 48.4853
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_fps" type="Label" parent="ColorRect/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "FPS"
+
+[node name="lbl_physic_fps" type="Label" parent="ColorRect/VBoxContainer"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 32.0
+text = "FPS"

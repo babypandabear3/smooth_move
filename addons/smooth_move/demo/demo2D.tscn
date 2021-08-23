@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://addons/smooth_move/smooth_move2D.gd" type="Script" id=2]
+[ext_resource path="res://addons/smooth_move/demo/fps_counter.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 700, 30 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="fps_counter" parent="." instance=ExtResource( 3 )]
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2( 804.772, 748.877 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource( 1 )
+
+[node name="icon" type="Sprite" parent="floor"]
+scale = Vector2( 20, 1 )
+texture = ExtResource( 1 )
+
+[node name="boxL" type="RigidBody2D" parent="."]
+position = Vector2( 461.034, -118.794 )
+
+[node name="icon" type="Sprite" parent="boxL"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxL"]
+shape = SubResource( 2 )
+
+[node name="boxR" type="RigidBody2D" parent="."]
+position = Vector2( 1142.69, -107.481 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxR"]
+shape = SubResource( 2 )
+
+[node name="SmoothMove2D" type="Node2D" parent="boxR"]
+script = ExtResource( 2 )
+follow_target = NodePath("..")
+
+[node name="icon" type="Sprite" parent="boxR/SmoothMove2D"]
+texture = ExtResource( 1 )
