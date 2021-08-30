@@ -9,7 +9,7 @@ var target : Node2D
 func _ready():
 	set_as_toplevel(true)
 	target = get_node(follow_target)
-	physic_fps = ProjectSettings.get_setting("physics/common/physics_fps")
+	physic_fps = ProjectSettings.get_setting("physics/common/physics_fps") - 0.5
 	global_transform = target.global_transform
 
 func _process(delta):
