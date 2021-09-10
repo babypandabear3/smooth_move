@@ -27,7 +27,7 @@ func _process(_delta):
 		update_transform()
 		update = false
 		
-	var f = Engine.get_physics_interpolation_fraction()
+	var f = clamp(Engine.get_physics_interpolation_fraction(), 0, 1)
 	global_transform = gt_prev.interpolate_with(gt_current, f)
 
 func _physics_process(_delta):
